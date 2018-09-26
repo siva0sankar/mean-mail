@@ -1,2 +1,2 @@
-# mean-mail
+# Mean-Mail
 Mail Client Using MEAN Strack
