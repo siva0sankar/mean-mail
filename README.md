@@ -3,7 +3,7 @@ Mail Client Using MEAN Strack
 
 This Project is just an start up . As of now I have tried to learn MEAN stack . Once I have learned all of it. Will start to work o creating email client for other mails like Gmail, Microsoft mail, etc.
 
-In this Project I have used more number of node modules . I will give short note for it in this file
+In this Project I have used more number of node modules . I will give short note for it in this file.
 
 # express
 I have used this express module as web application fremework
