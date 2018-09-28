@@ -22,3 +22,6 @@ bcrypt-nodejs is a middleware of mongooes module. This was used for encrypting p
 
 # Advanced REST Client - ARC
 This is Google Chrome Extension . I have used this extension for craeting post  request. we can used other tools also for this prepose like POSTMAN.
+
+# Models
+As of now I have craeted only one model #User.
