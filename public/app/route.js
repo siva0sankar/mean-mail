@@ -11,6 +11,12 @@ angular.module('appRoutes',['ngRoute'])
         templateUrl : 'app/views/pages/about.html'
     })
 
+    .when('/register',{
+        templateUrl : 'app/views/pages/users/register.html',
+        controller  : 'regCtrl',
+        controllerAs:  'register'
+    })
+
     .otherwise({redirectTo : '/'});
 
     $locationProvider.html5Mode({

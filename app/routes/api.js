@@ -11,7 +11,7 @@ module.exports = function(router){
     //     res.send('Hellow Home ..:)')
     // });
 
-    //http://localhost:8080/user
+    //http://localhost:8080/api/user
     router.post('/user',function(req,res){
         //  res.send('Testing User..');  -- Just for Testing 
 
@@ -22,13 +22,13 @@ module.exports = function(router){
         if(req.body.username == null ||req.body.username == '' ||
             req.body.password == null ||req.body.password == '' ||
             req.body.email == null ||req.body.email == '' ){
-            res.send("Ensure username,email and password were provided");
+            res.json({success : false , message : 'Ensure username,email and password were provided'})
         }else{
             user.save(function(err){
                 if(err){
-                    res.send('Username or Email is already created.. :(');
+                    res.json({success : false , message : 'Username or Email is already created.. :('})
                 }else{
-                    res.send('user created :)');
+                    res.json({success:true,message:'user created :)'})
                 }
             });
         }
