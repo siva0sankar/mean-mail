@@ -11,6 +11,7 @@ module.exports = function(router){
     //     res.send('Hellow Home ..:)')
     // });
 
+    // USER REGISTRATION 
     //http://localhost:8080/api/user
     router.post('/user',function(req,res){
         //  res.send('Testing User..');  -- Just for Testing 
@@ -32,6 +33,30 @@ module.exports = function(router){
                 }
             });
         }
+    });
+
+
+    // USER LOGIN 
+    // http://localhost:port/api/authenticate
+    router.post('/authenticate',function(req,res){
+        User.findOne({username:req.body.username}).select('email username password').exec(function(err,user){
+            if(err) throw err;
+
+            if(!user){
+                res.json({success:false,message:'Could not authenticate user ..'})
+            }else if(user){
+                if(req.body.password){
+                    var validPassword = user.comparePassword(req.body.password);
+                    if(!validPassword){
+                        res.json({success:false,message:'Could not authenticate password ..'})
+                    }else{
+                        res.json({success:true,message:'User Authenticated  :)'})
+                    }
+                }else{
+                    res.json({success:false,message:'No Password provided  ..'})
+                }
+            }
+        });
     });
 
     return router;

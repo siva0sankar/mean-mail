@@ -1,19 +1,18 @@
-angular.module('userControllers',['userServices'])
+angular.module('mainController',['authServices'])
 
-.controller('regCtrl',function($location,$timeout,User){
-
+.controller('mainCtrl',function(Auth,$location,$timeout){
     var app = this;
 
-    this.regUser = function(){
+    app.doLogin = function(){
         app.loading = true;
         app.errorMsg = false;
         app.successMsg = false;
-        User.create(app.regData).then(function(data){
+        Auth.login(app.loginData).then(function(data){
            if(data.data.success){
                 app.successMsg = data.data.message + '....Redirecting ....';
                 app.loading = false;
                 $timeout(function(){
-                    $location.path('/');
+                    $location.path('/about');
                 },2000);
 
            }else{
@@ -21,5 +20,5 @@ angular.module('userControllers',['userServices'])
                 app.loading = false;
            }
         });
-    };
+    }
 });
