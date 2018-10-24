@@ -9,7 +9,16 @@ var router       = express.Router();
 var appRoutes    = require('./app/routes/api')(router);
 var path         = require('path');
 
+var passport     = require('passport');
+var social       = require('./app/passport/passport')(app,passport);
 
+// var redirectToHTTPS = require('express-http-to-https').redirectToHTTPS;
+
+// var fs           = require('fs');
+// var https        = require('https');
+
+// app.use(redirectToHTTPS([/localhost:(\d{4})/], [/\/insecure/], 301));
+// https.createServer({}, app).listen(port);
 app.use(morgan('dev'));
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
